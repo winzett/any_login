@@ -15,10 +15,10 @@ module AnyLogin
 
         def any_login_sign_in
           @loginable = AnyLogin.klass.find(user_id)
-
           sign_in = AnyLogin.sign_in || DEFAULT_SIGN_IN
           instance_exec(@loginable, &sign_in)
-
+          redirect_to main_app.send(AnyLogin.redirect_path_after_login)
+        rescue
           redirect_to main_app.send(AnyLogin.redirect_path_after_login)
         end
 
