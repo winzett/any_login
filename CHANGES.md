@@ -6,4 +6,4 @@
 
 ## 1.4.1
 
-  - added support for Rails 6
+  - added support for Rails 622
